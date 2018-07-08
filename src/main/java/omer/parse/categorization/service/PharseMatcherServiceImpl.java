@@ -4,14 +4,21 @@ import lombok.AllArgsConstructor;
 import omer.parse.categorization.dal.WordsRepository;
 import omer.parse.categorization.model.Pharse;
 import omer.parse.categorization.model.PharseWord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PharseMatcherServiceImpl implements PharseMatcherService {
+    private static Logger LOGGER = LoggerFactory.getLogger(PharseMatcherServiceImpl.class);
+
     private PharseGeneratorService pharseGeneratorService;
     private WordsRepository wordsRepository;
 
@@ -21,6 +28,7 @@ public class PharseMatcherServiceImpl implements PharseMatcherService {
      */
     @Override
     public Map<String, Integer> matchPharse(String pharseStr) {
+        LOGGER.info(String.format("match pharse againts repo: %s", pharseStr));
         Map<String, Integer> retMatchedPharses = new HashMap();
         if (null == pharseStr){
             return retMatchedPharses;

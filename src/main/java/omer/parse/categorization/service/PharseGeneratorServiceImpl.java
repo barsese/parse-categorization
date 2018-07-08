@@ -2,6 +2,8 @@ package omer.parse.categorization.service;
 
 import omer.parse.categorization.model.Pharse;
 import omer.parse.categorization.model.PharseWord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,8 +13,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class PharseGeneratorServiceImpl implements PharseGeneratorService {
+    private static Logger LOGGER = LoggerFactory.getLogger(PharseGeneratorServiceImpl.class);
+
     @Override
     public Pharse createPharse(String pharse) {
+        LOGGER.info(String.format("create pharse from string: %s",pharse));
         if (null == pharse){
             return new Pharse(new ArrayList<>());
         }

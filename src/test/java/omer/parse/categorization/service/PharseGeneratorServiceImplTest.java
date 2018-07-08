@@ -2,11 +2,10 @@ package omer.parse.categorization.service;
 
 import omer.parse.categorization.model.Pharse;
 import omer.parse.categorization.model.PharseWord;
-import omer.parse.categorization.utils.TestingData;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PharseGeneratorServiceImplTest {
     private PharseGeneratorService serviceUnderTest;

@@ -1,6 +1,5 @@
 package omer.parse.categorization.model;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
